@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  app:
+    image: python:3.10.7-buster
+    volumes:
+      - "$PWD:/usr/src/app"
+    working_dir: "/usr/src/app"
+    env_file: .env
+    command: /bin/bash
+    tty: true
+    network_mode: "host"
+    ports:
+      - 0.0.0.0:5000:5000
+    expose:
+      - 5000
+    depends_on:
+      - db
+      - redis
+
+  db:
+    ipc: host
+    image: postgres:11.9-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - TERM=xterm
+      - POSTGRES_PASSWORD=carleyfamily_password
+      - POSTGRES_USER=carleyfamily_admin
+      - POSTGRES_DB=carleyfamily_development
+    volumes:
+      - "./dbdata:/var/lib/postgresql/data"
+
+  redis:
+    image: redis:5.0.12-alpine
+    ports:
+      - "6379:6379"
