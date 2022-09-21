@@ -1,3 +1,5 @@
 db.sqlite3
 dbdata
-__pycache__
+__pycache__/
+.venv
+.DS_Store
