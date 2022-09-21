@@ -1,0 +1,9 @@
+<h1>All Photos</h1>
+{% for photo in photo_list %}
+<ul>
+	<li>Title: {{ photo.title }}</li>
+	<li>Subtitle: {{ photo.subtitle }}</li>
+	<li>Path: {{ photo.path }}</li>
+	<li>Mime Type: {{ photo.mime_type }}</li>
+</ul>
+{% endfor %}
