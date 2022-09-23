@@ -1,3 +1,8 @@
 Django==4.1.1
 djangorestframework==3.13.1
 psycopg2-binary==2.9.3
+uvicorn==0.18.3
+django-environ==0.9.0
+
+# this should really go in a separate requirements file
+django-extensions==3.2.1
